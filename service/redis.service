@@ -1,0 +1,14 @@
+[Unit]
+Description=redis_server
+After=network.target 
+
+[Service]
+ExecStart=/usr/share/ngrok/bin/ngrokd -domain lumoschen.cn -httpAddr ":8443"
+ExecStop=/bin/kill -KILL $MAINPID
+Type=simple
+KillMode=control-group
+Restart=always
+RestartSec=5s
+
+[Install]
+WantedBy=multi-user.target
