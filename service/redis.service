@@ -3,7 +3,7 @@ Description=redis_server
 After=network.target 
 
 [Service]
-ExecStart=/usr/share/ngrok/bin/ngrokd -domain lumoschen.cn -httpAddr ":8443"
+ExecStart=/usr/share/redis_deploy/redis/src/redis-server /usr/share/redis_deploy/config/redis.conf
 ExecStop=/bin/kill -KILL $MAINPID
 Type=simple
 KillMode=control-group
